@@ -1,0 +1,64 @@
+
+
+
+<body>
+<div id="container">
+    <div class="form-wrap">
+    <h1>Student Registration Form</h1>
+        <div class="form-group">
+            <label>Title</label>
+            <select [(ngModel)]="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Student Name">Student Name</label>
+            <input type="text" [(ngModel)]="studentName">
+        </div>
+        <div class="form-group">
+            <label for="Course Code">Course Code</label>
+            <select [(ngModel)]="courseCode">
+            <option *ngFor="let course of coursedata" value=course.courseCode>{{course.courseCode}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Teacher Id">Teacher Id</label>
+            <select [(ngModel)]="teacherid">
+            <option *ngFor="let teachers of teacher" value=teachers.teacherId>{{teachers.teacherId}}</option>
+            </select>
+        </div>
+        <button (click)="addstudentdetails()">Add Student</button>
+        <button (click)="updatestudent()">Update Student</button>
+        
+    
+
+    </div>
+</div>
+</body>
+   
+
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Student Name</th>
+        <th>Course Code</th>
+        <th>Teacher Id</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let user of users;index as i">
+        <td>{{i+1}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.studentName}}</td>
+        <td>{{user.courseCode}}</td>
+        <td>{{user.teacherId}}</td>
+        <td><button (click)="ondeleteUser(user.studentId)">Delete</button></td>
+        <td><button (click)="editdata(user)">Edit</button></td>
+        
+    </tr>
+</table>
+
+

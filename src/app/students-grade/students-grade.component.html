@@ -1,0 +1,55 @@
+<p>students-grade works!</p>
+<body>
+    <div id="container">
+        <div class="form-wrap">
+        <h1>Course Registration Form</h1>
+            <div class="form-group">
+                <label>Course Code</label>
+                <input type="text" [(ngModel)]="CourseCode">
+            </div>
+            <div class="form-group">
+                <label for="Course Title">Course Title</label>
+                <input type="text" [(ngModel)]="courseTitle">
+            </div>
+            <div class="form-group">
+                <label for="Unit">Unit</label>
+                <input type="text" [(ngModel)]="unit">
+            </div>
+    
+            <div class="form-group">
+                <label class="Grade">Grade</label>
+                <input type="text" [(ngModel)]="Grade">
+            </div>
+            <button (click)="adddetails()">Add Course</button>
+            <button (click)="updatecourse()">Update Course</button>
+            
+        
+    
+        </div>
+    </div>
+    </body>
+        
+    
+    
+    
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Unit</th>
+            <th>Grade</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let course of courses;index as i">
+            <td>{{i+1}}</td>
+            <td>{{course.courseCode}}</td>
+            <td>{{course.courseTitle}}</td>
+            <td>{{course.unit}}</td>
+            <td>{{course.grade}}</td>
+            <td><button (click)="ondelete(course.courseCode)">Delete</button></td>
+            <td><button (click)="editdata(course)">Edit</button></td>
+        </tr>
+    </table>
+    
+    
